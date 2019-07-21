@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { GatosController } from './gatos/gatos.controller';
 
 /** toda referencia a @ en typescript hace referencia a decorators */
 /** un class decorators en este caso, puede añadir/modificar parametros en
@@ -10,7 +11,7 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [],
-  controllers: [AppController],
+  controllers: [AppController, GatosController],
   providers: [AppService],
 })
 
