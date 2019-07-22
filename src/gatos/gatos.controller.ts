@@ -1,10 +1,13 @@
-import { Controller, Get, Req,Res } from '@nestjs/common';
+import { Controller, Get, Req, Res } from '@nestjs/common';
+import { GatosService } from './gatos.service';
+import { Gato } from './interfaces/gatos.interface';
 /**el string 'gatos' declarado en el class decorator Controller hace referencia 
  * a un route path, en este caso 'gatos' esta definiendo que la ruta /gatos 
  * va hacer referencia a este controlador
  */
 @Controller('gatos')
 export class GatosController {
+    constructor(private readonly GatosService: GatosService) { }
     /** En este caso si dejamos el decorator de get sin añadir un prefijo
      * cada petición get a /gatos va retornar la funcion Todos Los gatos
     */
@@ -13,8 +16,8 @@ export class GatosController {
      * ruta quede de esta forma /gatos/todosMisGatos
      */
     @Get()
-    TodosLosGatos(): string {
-        return 'esta accion retorna todos los gatos de la db';
+    async TodosLosGatos(): Promise<Gato[]> {
+        return this.GatosService.buscarTodos();
     }
 }
 /** un controlador es el encargado de manejar las  HTTP Request y dejarle las tareas complejas

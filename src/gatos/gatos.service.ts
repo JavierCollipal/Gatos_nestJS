@@ -1,10 +1,5 @@
 import { Injectable } from '@nestjs/common';
-
-interface Gato {
-    nombre: string,
-    edad: number,
-    raza: string
-}
+import { Gato } from './interfaces/gatos.interface';
 /**Un decorator Injectable */
 @Injectable()
 export class GatosService {
