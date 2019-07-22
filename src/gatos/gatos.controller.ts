@@ -7,6 +7,11 @@ import { Gato } from './interfaces/gatos.interface';
  */
 @Controller('gatos')
 export class GatosController {
+    /**Inyeccion de depedencias mediante controlador */
+    /**En este caso en vez de importar a GatosService y crear un nuevo objeto con new,
+     * lo pasamos directamente en el constructor y eventualmente estara disponible para su uso como objeto
+     * en toda la clase GatosControllerz
+    */
     constructor(private readonly GatosService: GatosService) { }
     /** En este caso si dejamos el decorator de get sin añadir un prefijo
      * cada petición get a /gatos va retornar la funcion Todos Los gatos
