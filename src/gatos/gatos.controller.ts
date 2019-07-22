@@ -13,8 +13,8 @@ export class GatosController {
      * ruta quede de esta forma /gatos/todosMisGatos
      */
     @Get()
-    TodosLosGatos(@Res() response: Response): string {
-        return 'esta accion retorna todos los gatos de la db'
+    TodosLosGatos(): string {
+        return 'esta accion retorna todos los gatos de la db';
     }
 }
 /** un controlador es el encargado de manejar las  HTTP Request y dejarle las tareas complejas
